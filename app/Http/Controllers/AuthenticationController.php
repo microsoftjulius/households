@@ -12,13 +12,13 @@ class AuthenticationController extends Controller
      * This function takes the user model and its object,
      * we use the object to create a new account user.
      */
-    protected function createAccount(User $account){
+    protected function createAccount(){
+        $account = new User();
         $account->name     = request()->name;
         $account->email    = request()->email;
         $account->password = Hash::make(request()->password);
         $account_status    = 'active';
         $account->save();
-
     }
 
     /**
