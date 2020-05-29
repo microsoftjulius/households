@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 Route::post('/save-household','HouseHoldController@createHouseHold');
 Route::get('/display-household','HouseHoldController@displayHouseHold');
 Route::delete('/update-household/{id}','HouseHoldController@updateToBought');
 Route::delete('/mark-as-bought/{id}','HouseHoldController@markAsNotBought');
 Route::delete('/delete-permanently/{id}','HouseHoldController@deleteHouseholdPermanently');
 Route::get('/display-particular-household/{id}','HouseHoldController@displayParticularHousehold');
+
+Route::post('/create-account','AuthenticationController@validateAccountCredantials');
+
+Route::delete('/delete-account/{id}','AuthenticationController@deleteMyAccount');
+
+Route::get('/get-all-users','AuthenticationController@getAllUsers');
