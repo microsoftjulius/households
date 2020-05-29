@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+});Route::post('/save-household','HouseHoldController@createHouseHold');
+Route::get('/display-household','HouseHoldController@displayHouseHold');
+Route::delete('/update-household/{id}','HouseHoldController@updateToBought');
+Route::delete('/mark-as-bought/{id}','HouseHoldController@markAsNotBought');
+Route::delete('/delete-permanently/{id}','HouseHoldController@deleteHouseholdPermanently');
+Route::get('/display-particular-household/{id}','HouseHoldController@displayParticularHousehold');
